@@ -1,29 +1,131 @@
 import random
 print("Let's Play")
-words = ["games", "daddy", "later", "early"]
+letters_guessed = []
+tries = 7
+words = ["games", "jumpy", "later", "early", "haunt"]
 words_list = random.choice(words)
 words_length = len(words_list)
-words_element = (words_list[0],words_list[1],words_list[2], words_list[3], words_list[4]) 
+words_element = (words_list[0],words_list[1],words_list[2], words_list[3], words_list[4], ) 
 print(words_element)
-input_alpha = input("letter : ")
+while tries > 0:
+    guess = input("letter : ")
+    word_as_list = list
+    
+    if guess == "":
+        print("A letter!!")
+    
+    if guess in words_list:
+        print("Correct")
+        letters_guessed.append(guess)
+        print("Letters guessed" + str(letters_guessed))
+    else:
+        print("Wrong")
+        tries -= 1
+        print("Number of Tries :" + str(tries))
+    if tries == 6:
+        print('''
+              ----------
+              |        |
+              |        |
+              |        |
+              |
+              |
+              |
+         ----------
+         ''')
+    if tries == 5:
+        print('''
+              ----------
+              |        |
+              |        |
+              |        |
+              |     {[]}
+              |
+              |
+              |
+         ----------
+         ''')
+    if tries == 4:
+        print('''
+              ----------
+              |        |
+              |        |
+              |        |
+              |     {[]}
+                     |
+              |      |
+              |      |
+              |
+         ----------
+         ''')
+    if tries == 3:
+        print('''
+              ----------
+              |        |
+              |        |
+              |        |
+              |     {[]}
+                     |
+              |     \|
+              |      |
+              |      
+         ----------
+         ''')
+    if tries == 2:
+        print('''
+              ----------
+              |        |
+              |        |
+              |        |
+              |     {[]}
+                     |
+              |     \|/
+              |      |
+              |      
+         ----------
+         ''')
+    if tries == 1:
+        print('''
+              ----------
+              |        |
+              |        |
+              |        |
+              |     {[]}
+                     |
+              |     \|/
+              |      |
+              |      /
+         ----------
+         ''')
+    if tries == 0:
+        print('''
+              ----------
+              |        |
+              |        |
+              |        |
+              |     {[]}
+                     |
+              |     \|/
+              |      |
+              |      /\
+         ----------
+         ''')
+    if tries == 0:
+        print('''
+              ----------
+              |        |
+              |        |
+              |        |                   0    0
+              |     {[]}     | /    000
+                     |       |/    |   |    ----
+              |     \|/      |\    |   |   -    -
+              |      |       | \    000
+              |      /\
+         ----------
+         ''')
+   
+    
 
-if input_alpha == words_list[0]:
-    print("ok")
-if input_alpha == words_list[1]:
-    print("ok")
-if input_alpha == words_list[2]:
-    print("ok")
-if input_alpha == words_list[3]:
-    print("ok")
-if input_alpha == words_list[4]:
-    print("ok")
-if input_alpha != words_list[0]:
-    print("ded")
-if input_alpha != words_list[1]:
-    print("ded")
-if input_alpha != words_list[2]:
-    print("ded")
-if input_alpha != words_list[3]:
-    print("ded")
-if input_alpha != words_list[4]:
-    print("ded")
+        
+else:
+    print("lol you lose")
