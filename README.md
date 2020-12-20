@@ -8,7 +8,7 @@ words_length = len(words_list)
 words_element = (words_list[0],words_list[1],words_list[2], words_list[3], words_list[4], ) 
 print(words_element)
 while tries > 0:
-    guess = input("letter : ")
+    guess = input("letter : ").lower()
     word_as_list = list
     
     if guess == "":
