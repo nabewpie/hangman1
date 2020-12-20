@@ -2,7 +2,7 @@ import random
 print("Let's Play")
 letters_guessed = []
 tries = 7
-words = ["games", "jumpy", "later", "early", "haunt"]
+words = ["games", "jumpy", "later", "early", "haunt", "blown", "bluer", "bedim", "beano"]
 words_list = random.choice(words)
 words_length = len(words_list)
 words_element = (words_list[0],words_list[1],words_list[2], words_list[3], words_list[4], ) 
