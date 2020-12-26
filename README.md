@@ -2,26 +2,56 @@ import random
 print("Let's Play")
 letters_guessed = []
 tries = 7
-words = ["games", "jumpy", "later", "early", "haunt", "blown", "bluer", "bedim", "beano"]
-words_list = random.choice(words)
-words_length = len(words_list)
-words_element = (words_list[0],words_list[1],words_list[2], words_list[3], words_list[4], ) 
+
+words = ["games", "jumpy", "later", "early", "haunt", "blown", "bluer", "bedim", "beano", "letter"]
+password = ["hangman", "noose", "gallows", "cool", ""]
+chosen_word = random.choice(words)
+chosen_pass = random.choice(password)
+words_length = len(chosen_word)
+blank = "*" * len(chosen_word)
+
+print("To reveal letter, guess the password. WARNING! Wrong password may cost you a life!! Passwords = hangman, noose, gallows, cool")
+
+words_as_list = list(chosen_word)
+
 while tries > 0:
-    guess = input("letter : ").lower()
-    word_as_list = list
+    guess = input("Letter : ").lower()
+    
+    
     
     if guess == "":
-        print("A letter!!")
-    
-    if guess in words_list:
-        print("Correct")
+        print("Enter a  letter, not the Enter key!!")
+        tries =+ 0
+    if guess in words_as_list and guess not in letters_guessed:
         letters_guessed.append(guess)
-        print("Letters guessed" + str(letters_guessed))
+        
+        chosen_word_list = list(chosen_word)
+        for i in range (0, len(chosen_word)):
+            if words_as_list[i] == guess:
+                l = list(blank)
+                l[i] = guess
+                blank = "".join(l)
+                print (blank)
+        
+
+    elif guess == str(chosen_pass):
+        print(chosen_word)
+        
+        
+        
     else:
         print("Wrong")
         tries -= 1
-        print("Number of Tries :" + str(tries))
-    if tries == 6:
+        print("Number of Tries : " + str(tries))
+        
+    
+
+
+    if tries > 0 and blank == chosen_word:
+        print("YOU  WON!!!!!")
+    
+    
+    if tries == 6:   
         print('''
               ----------
               |        |
@@ -93,7 +123,7 @@ while tries > 0:
                      |
               |     \|/
               |      |
-              |      /
+              |     /
          ----------
          ''')
     if tries == 0:
@@ -106,7 +136,7 @@ while tries > 0:
                      |
               |     \|/
               |      |
-              |      /\
+              |     / \
          ----------
          ''')
     if tries == 0:
@@ -119,7 +149,7 @@ while tries > 0:
                      |       |/    |   |    ----
               |     \|/      |\    |   |   -    -
               |      |       | \    000
-              |      /\
+              |     / \
          ----------
          ''')
    
@@ -129,3 +159,5 @@ while tries > 0:
 else:
     print("lol you lose")
 
+    
+    
